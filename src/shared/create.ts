@@ -7,3 +7,12 @@ export const createPluginName = (
 		return reusable ? `${base}:${i++}` : base
 	}
 }
+
+export const createVirtualModuleID = (name: string) => {
+	const virtualModuleId = `virtual:${name}`
+	const resolvedVirtualModuleId = '\0' + virtualModuleId
+	return {
+		virtualModuleId,
+		resolvedVirtualModuleId
+	}
+}
