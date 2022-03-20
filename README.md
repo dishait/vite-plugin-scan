@@ -4,85 +4,60 @@
 
 <br />
 
-## Features 🦖
-
-- pnpm 的
-- `vitest` 测试
-- 开箱即用的
-- `typescript` 的
-
 <br />
 <br />
 
 ## Usage 🦕
 
 
-### install
+### 安装
 
 ```shell
-# 工作区安装
-pnpm i
-
-# 源码依赖安装
-pnpm i -w
+npm i vite-plugin-scan
 ```
 
-### init:info
+### 配置
 
-```shell
-pnpm init:info
+```ts
+// vite.config.js
+import { defineConfig } from 'vite'
+import Scan from 'vite-plugin-scan'
+import Vue from '@vitejs/plugin-vue'
+
+export default defineConfig({
+	plugins: [
+		Vue(),
+		Scan({
+			source: 'modules/**/*'
+		})
+	]
+})
 ```
 
-### test
+### 使用
 
-```shell
-pnpm test
+```ts
+import { createApp } from 'vue'
+import App from './App.vue'
+import { files } from 'virtual:scan'
 
-# or pnpm test:watch
+const app = createApp(App)
+
+console.log(files) // 获取文件
+
+app.mount('#app')
 ```
 
-### build
+### 类型声明
 
-```shell
-pnpm build
-```
+如果你是 `ts` 项目，可以在 `tsconfig.json` 中添加如下配置
 
-### coverage
-
-```shell
-pnpm coverage
-```
-
-### dev
-
-```shell
-pnpm dev
-```
-
-### publish
-
-```shell
-npm publish
-```
-
-### play
-
-```shell
-# 工作区 dev
-pnpm play
-
-# or pnpm play:open
-# or pnpm play:host
-# or pnpm play:build
-# or pnpm play:preview
-# or pnpm play:preview:open
-# or pnpm play:preview:host
-```
-
-### release
-
-```shell
-pnpm release
+```ts
+{
+    "compilerOptions": {
+        "types": ["vite-plugin-scan/client"]
+    }
+}
 ```
 
 <br />

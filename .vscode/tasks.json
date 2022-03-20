@@ -20,11 +20,6 @@
 			"group": "test"
 		},
 		{
-			"label": "release",
-			"type": "npm",
-			"script": "release"
-		},
-		{
 			"label": "init:info",
 			"type": "npm",
 			"script": "init:info"
