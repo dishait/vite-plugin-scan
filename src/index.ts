@@ -9,13 +9,18 @@ import { reloadVirtualModule } from './shared/modules'
 
 interface Options {
 	glob?: boolean
+	objectMode?: boolean
 	source: string | string[]
 }
 
 const useName = createPluginName()
 
 const usePlugin = (options: Options): Plugin => {
-	const { source, glob = true } = options
+	const {
+		source,
+		glob = true,
+		objectMode = false
+	} = options
 
 	const { virtualModuleId, resolvedVirtualModuleId } =
 		createVirtualModuleID('scan')
@@ -55,7 +60,9 @@ const usePlugin = (options: Options): Plugin => {
 		},
 		async load(id) {
 			if (id === resolvedVirtualModuleId) {
-				const files = await fg(source)
+				const files = await fg(source, {
+					objectMode
+				})
 				const str = JSON.stringify(files)
 				return `export const files = ${str}`
 			}

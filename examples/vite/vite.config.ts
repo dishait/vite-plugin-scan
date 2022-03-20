@@ -7,7 +7,8 @@ export default defineConfig({
 	plugins: [
 		Vue(),
 		Scan({
-			source: 'modules/**/*'
+			objectMode: true, // 对象模式
+			source: 'modules/**/*' // 源目标
 		}),
 		Inspect()
 	]

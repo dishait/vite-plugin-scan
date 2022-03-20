@@ -30,7 +30,8 @@ export default defineConfig({
     plugins: [
         Vue(),
         Scan({
-            source: 'modules/**/*' // 目标目录，支持 glob
+            objectMode: false, // 对象模式，默认为 false
+            source: 'modules/**/*' // 必需选项，目标目录 (glob)
         })
     ]
 })
