@@ -30,7 +30,7 @@ export default defineConfig({
     plugins: [
         Vue(),
         Scan({
-            source: 'modules/**/*'
+            source: 'modules/**/*' // 目标目录，支持 glob
         })
     ]
 })

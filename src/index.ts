@@ -12,7 +12,7 @@ interface Options {
 	source: string | string[]
 }
 
-const useName = createPluginName(true)
+const useName = createPluginName()
 
 const usePlugin = (options: Options): Plugin => {
 	const { source, glob = true } = options
