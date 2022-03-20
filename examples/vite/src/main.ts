@@ -1,9 +1,9 @@
 import { createApp } from 'vue'
 import App from './App.vue'
-import { msg } from 'virtual:scan'
+import { files } from 'virtual:scan'
 
 const app = createApp(App)
 
-console.log(msg)
+console.log(files)
 
 app.mount('#app')

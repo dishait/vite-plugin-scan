@@ -1,14 +1,19 @@
+import fg from 'fast-glob'
 import type { Plugin } from 'vite'
 import {
 	createPluginName,
 	createVirtualModuleID
 } from './shared/create'
 
-interface Options {}
+interface Options {
+	source: string | string[]
+}
 
 const useName = createPluginName(true)
 
-const usePlugin = (options?: Partial<Options>): Plugin => {
+const usePlugin = (options: Options): Plugin => {
+	const { source } = options
+
 	const { virtualModuleId, resolvedVirtualModuleId } =
 		createVirtualModuleID('scan')
 
@@ -19,9 +24,11 @@ const usePlugin = (options?: Partial<Options>): Plugin => {
 				return resolvedVirtualModuleId
 			}
 		},
-		load(id) {
+		async load(id) {
 			if (id === resolvedVirtualModuleId) {
-				return 'export let msg = "hello"'
+				const files = await fg(source)
+				const str = JSON.stringify(files)
+				return `export const files = ${str}`
 			}
 		}
 	}
