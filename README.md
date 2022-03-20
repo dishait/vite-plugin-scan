@@ -54,7 +54,7 @@ app.mount('#app')
 
 如果你是 `ts` 项目，可以在 `tsconfig.json` 中添加如下配置
 
-```ts
+```json
 {
     "compilerOptions": {
         "types": ["vite-plugin-scan/client"]
