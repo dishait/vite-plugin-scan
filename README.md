@@ -50,6 +50,8 @@ console.log(files) // 获取文件
 app.mount('#app')
 ```
 
+<br />
+
 ### 类型声明
 
 如果你是 `ts` 项目，可以在 `tsconfig.json` 中添加如下配置
