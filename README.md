@@ -16,6 +16,8 @@
 npm i vite-plugin-scan
 ```
 
+<br />
+
 ### 配置
 
 ```ts
