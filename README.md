@@ -1,6 +1,6 @@
-# vite-plugin-template
+# vite-plugin-scan
 
-开箱即用的 vite 插件模板
+动态扫描 vite 插件
 
 <br />
 
@@ -90,7 +90,7 @@ pnpm release
 
 ## License
 
-Made with name
+Made with [markthree](https://github.com/markthree)
 
 Published under [MIT License](./LICENSE).
 
