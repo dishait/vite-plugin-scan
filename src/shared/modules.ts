@@ -5,21 +5,17 @@ import type {
 } from 'vite'
 
 export const reloadVirtualModule = (
-	id: string,
+	resolvedVirtualModuleId: string,
 	moduleGraph: ModuleGraph,
-	ws: WebSocketServer,
-	path = '*'
+	ws: WebSocketServer
 ) => {
 	const module = moduleGraph.getModuleById(
-		'/@id/__x00__' + id
+		resolvedVirtualModuleId
 	)
 	if (module) {
 		moduleGraph.invalidateModule(module)
-		if (ws) {
-			ws.send({
-				path,
-				type: 'full-reload'
-			})
-		}
+		ws.send({
+			type: 'full-reload'
+		})
 	}
 }
