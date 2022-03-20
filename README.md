@@ -25,14 +25,16 @@ import Scan from 'vite-plugin-scan'
 import Vue from '@vitejs/plugin-vue'
 
 export default defineConfig({
-	plugins: [
-		Vue(),
-		Scan({
-			source: 'modules/**/*'
-		})
-	]
+    plugins: [
+        Vue(),
+        Scan({
+            source: 'modules/**/*'
+        })
+    ]
 })
 ```
+
+<br />
 
 ### 使用
 
